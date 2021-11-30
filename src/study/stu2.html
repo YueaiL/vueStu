@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-if="flag">{{msg}}</span>
+        <span>{{b}}</span>
+    </div>
+    <script>
+        let data = {flag:true,msg:'test'}
+        let v = new Vue({
+            el:'#app',
+            data:data
+        })
+        if (v.flag == data.flag){
+            console.log(v.flag)
+        }
+        data.msg = 'hello word';
+        console.log(v.msg)
+        v.b = '后来的'
+    </script>
+</body>
+</html>

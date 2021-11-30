@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //形参默认值  否则为undefined
+    function Point(x = 0,y = 1) {
+        this.x = x;
+        this.y = y;
+    }
+    let p1 = new Point(2,4);
+    console.log(p1)
+    let point = new Point();
+    console.log(point)
+</script>
+</body>
+</html>

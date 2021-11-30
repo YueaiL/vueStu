@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  var obj = {username:"小明",age:13,sex:'男'};
+  obj = JSON.stringify(obj)
+  console.log(obj,typeof obj)
+  console.log(obj.username)
+  var r = JSON.parse(obj);
+  console.log(r,typeof r)
+  console.log(r.username)
+</script>
+</body>
+</html>

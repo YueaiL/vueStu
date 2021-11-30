@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{message}}
+    <div>
+        <span v-if="t">aaaa</span>
+        <span v-if="!t">aaaa</span>
+    </div>
+</div>
+<div id="app2">
+    <div>
+        <span v-if="flag">{{msg}}</span>
+        <button @click="msgReverse">{{buttonMsg}}</button>
+    </div>
+    <span>inputValue </span><input type="text" :value="inputValue" @change="ivc"><br>
+    <span>modelValue </span><input type="text" v-model:value="modelValue" @change="mvc">
+    <!--循环-->
+    <div>
+        <ul>
+            <ol v-for="ls in list">{{ls.name}}</ol>
+        </ul>
+    </div>
+</div>
+<div id="app3">
+    <!--组件-->
+    <todo-item></todo-item>
+    <par-item v-for="i in list" :todo="i" :key="i.name"></par-item>
+</div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                message:'hello word',
+                t: null,
+                inputValue: ''
+            }
+        });
+        new Vue({
+            el: '#app2',
+            data:{
+                msg : "Hello",
+                flag: true,
+                buttonMsg: "反转",
+                inputValue: "123",
+                modelValue: "321",
+                list: [
+                    {'name':'小红'},
+                    {'name':'小明'},
+                    {'name':'小黄'},
+                    {'name':'小绿'},
+                ]
+            },
+            methods: {
+                msgReverse: function (){
+                    console.log(this.msg);
+                    this.msg = this.msg.split('').reverse().join('');
+                },
+                ivc: function () {
+                    console.log('inputValue:'+this.inputValue)
+                },
+                mvc:function (){
+                    console.log('modelValue:'+this.modelValue)
+                }
+
+            }
+        });
+        Vue.component('todo-item',{
+            template: '<li>这是个待办事项</li>'
+        });
+        Vue.component('par-item',{
+            props:['todo'],
+            template: '<li>{{todo.text}}</li>'
+        })
+        new Vue({
+            el:'#app3',
+            data:{
+                list: [
+                    { id: 0, text: '蔬菜' },
+                    { id: 1, text: '奶酪' },
+                    { id: 2, text: '随便其它什么人吃的东西' }
+                ]
+            }
+
+        })
+
+
+    </script>
+</body>
+</html>

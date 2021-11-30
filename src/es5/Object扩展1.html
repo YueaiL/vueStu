@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+  /*var obj = {username:"小明",age:12};
+  console.log(obj);
+  var o = Object.create(obj,{
+    sex:{
+      value:'男',
+      writable:true,
+      configurable:true,
+      enumerable:true
+    }
+  });
+  console.log(o);
+  o.sex = '女';
+  console.log(o);
+  // delete o.sex;
+  console.log(o);
+  for (var v in o) {
+    console.log(v);
+  }*/
+  var obj2 = {firstName:"kobe",lastName:"tom"}
+  Object.defineProperties(obj2,{
+    fullName:{
+      get:function (){
+        return this.firstName+' '+this.lastName;
+      },
+      set:function (v){
+        let arr = v.split(' ');
+        this.firstName = arr[0];
+        this.lastName = arr[1];
+      }
+    }
+  })
+  console.log(obj2.fullName)
+  obj2.fullName = 'hello work';
+  console.log(obj2)
+</script>
+</body>
+</html>

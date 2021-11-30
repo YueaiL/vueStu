@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="btn1">测试箭头函数1</button>
+<button id="btn2">测试箭头函数2</button>
+<script>
+  let fun = () => console.log("箭头函数");
+  fun();
+
+  let fun1 = a => console.log(a);
+  fun1('ccc');
+
+  let fun2 = (x,y) => console.log(x,y);
+  fun2(33,44);
+  //没有{}会自动返回值
+  let fun3 = (x,y) => x+y;
+  console.log(fun3(33, 88));;
+
+
+  let fun4 = (x,y) => {
+    console.log(x,y);
+    return x+y;
+  }
+  console.log(fun4(22, 44));
+
+
+  let btn1 = document.getElementById('btn1')
+  btn1.onclick = function (){
+    alert(this)
+  }
+  let btn2 = document.getElementById('btn2')
+  btn2.onclick = () => alert(this)
+  //箭头函数特点：
+  //简洁
+  //箭头函数没有自己的this,this不是调用时决定的，而是在定义的时候处在的对象就是它的this.
+</script>
+</body>
+</html>

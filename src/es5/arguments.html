@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  "use strict"
+  function sayHi() {
+    console.log(arguments.length);
+    for (let i = 0; i < arguments.length; i++) {
+      console.log(arguments[i])
+    }
+  }
+  sayHi(1,2,3)
+  let arr = [1,2,3]
+  let b = 4
+  console.log(Array.isArray(arr))
+  console.log(Array.isArray(b))
+</script>
+</body>
+</html>

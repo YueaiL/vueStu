@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  var Person = {
+    age:13,
+    sex:'女'
+  }
+  var obj = {username:'小明'}
+  function foo(data,d2){
+    console.log(this,data,d2)
+  }
+  foo.call(obj,Person)
+  foo.apply(obj,[44])
+  var bar = foo.bind(obj,66)
+  bar()
+</script>
+</body>
+</html>
