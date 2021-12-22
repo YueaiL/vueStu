@@ -1,0 +1,64 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <div>
+            {{message}}
+        </div>
+        <div>
+            <span :title="st">
+                悬停查看
+            </span>
+        </div>
+        <div>
+            <p v-if="seen">现在可以看到</p>
+        </div>
+        <div>
+            <ol>
+                <li v-for="t in list">姓名：{{t.name}} 年龄:{{t.age != null ? t.age : 0}}</li>
+            </ol>
+        </div>
+        <div>
+            处理用户输入
+            {{message}}
+            <button @click="br">{{btr}}</button>
+        </div>
+        <div>
+            表单输入双向绑定 <br>
+            <input type="text" v-bind="itsx">
+            {{itsx}}<br>
+            <input type="text" v-model="itsxm">
+            {{itsxm}}
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message: "Hello Word",
+                st:"悬停提示",
+                seen: 0,
+                list: [
+                    {name:"小红",age:11},
+                    {name:"小1",age:33},
+                    {name:"小2"}
+                ],
+                btr:'翻转消息',
+                itsx:'就这啊',
+                itsxm:'确实就这',
+                itsxmi:'确实就这',
+            },
+            methods:{
+                br:function () {
+                    this.message = this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

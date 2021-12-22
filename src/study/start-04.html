@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <span v-once>这个不会变:{{msg}}</span>
+    <div>
+        <p v-html="pht"></p>
+    </div>
+    <div>
+        <button v-bind:disabled="bds" @click="bdsc">点击</button>
+        <input type="button" value="允许点击" @click="supportClick">
+    </div>
+    <div>
+        <input type="text" :value="val.split('').reverse().join('')">
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: "Hello Word",
+            phtv: '哈哈哈哈',
+            pht: '<input type="text" value="phtv">',
+            bds: true,
+            val:'怕不是个筛子哦'
+        },
+        methods: {
+            bdsc: function () {
+                alert(this.bds + "职位");
+            },
+            supportClick: function () {
+                this.bds = false;
+            }
+        }
+    })
+</script>
+</body>
+</html>

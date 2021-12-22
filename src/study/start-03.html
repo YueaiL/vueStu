@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    {{message}}
+    <input type="text" v-model:value="message">
+    {{tt}}
+    <div>
+        <input type="text" v-model:value="nv">
+        <input type="text" v-model:value="ov">
+    </div>
+</div>
+<script>
+    var data = {
+        message: "就这啊",
+        tt: '',
+        ov: 'aaaa',
+        nv:''
+
+    }
+    let vue = new Vue({
+        el: "#app",
+        data: data,
+        methods:{
+          rev: function (val, oldVal) {
+
+          }
+        },
+        watch:{
+            ov: function (val,oldVal) {
+                this.nv = oldVal
+            }
+        },
+        created:function () {
+            console.log("oldVal si "+this.ov)
+        },
+
+    });
+    // vue.$watch('ov',(newV,oldV) => vue.nv = oldV)
+    // vue.message = data.message;
+</script>
+</body>
+</html>
